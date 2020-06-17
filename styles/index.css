@@ -11,3 +11,13 @@
     background-image: url("https://i.pinimg.com/originals/af/98/76/af987660727010e9f0a4665fd7453233.jpg");
     background-size: cover;
 }
+
+.social-icons > i{
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.index-social{
+    z-index: 100;
+}

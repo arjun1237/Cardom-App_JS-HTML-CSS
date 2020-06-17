@@ -79,6 +79,11 @@ body{
     border: 2px solid #c6ced6;
 }
 
+.bg-d-section{
+    background-color: #313a46;
+    color: #cedce4;
+}
+
 
 @media (min-width: 576px) {
     .side-bar{
