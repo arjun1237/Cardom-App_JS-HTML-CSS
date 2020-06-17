@@ -33,16 +33,23 @@ body{
 
 .nav-bar-support{
     height: 77px;
+    /* position: sticky; */
 }
 
 .nav-brand{
     padding: 20px;
+    cursor: pointer;
 }
 
 .navbar-list > ul li{
     display: inline;
     padding: 10px;
 }
+
+.navbar-list a,
+.side-bar a{
+    color: inherit;
+} 
 
 .navbar-list > ul li,
 .side-bar ul li {
@@ -64,8 +71,9 @@ body{
 
 .side-bar{
     background-color: #262e38;
-    padding: 30px 50px 30px 0px;
+    padding: 30px 43px 30px 0px;
     height: 87.8vh;
+    font-family: 'Saira', sans-serif;
 }
 
 .side-bar ul li{
