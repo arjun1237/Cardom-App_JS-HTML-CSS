@@ -1,0 +1,13 @@
+.index-heading{
+    font-family: 'Courgette', cursive;
+    text-align: center;
+    padding: 10px;
+    font-size: 3.5vw;
+}
+
+.index-img-panaroma{
+    height: 350px;
+    background-color: violet;
+    background-image: url("https://i.pinimg.com/originals/af/98/76/af987660727010e9f0a4665fd7453233.jpg");
+    background-size: cover;
+}

@@ -1,9 +1,15 @@
 body{
-    font-family: 'Saira', sans-serif;
+    /* font-family: 'Saira', sans-serif; */
+    color: #262e38;
 }
 
 .nav-bg-main{
     background-color: #313a46;
+}
+
+.nav-top{
+    z-index: 100;
+    font-family: 'Saira', sans-serif;
 }
 
 .color-white-trans{    
@@ -13,6 +19,7 @@ body{
 .font-i-sm{
     font-size: 23px;
     opacity: 75%;
+    color: #00ffffe1;
 }
 
 .font-logo{
@@ -65,6 +72,11 @@ body{
     list-style-type: none;
     margin-bottom: 10px;
     cursor: pointer;
+    text-align: center;
+}
+
+.list-pack{
+    border: 2px solid #c6ced6;
 }
 
 
@@ -73,10 +85,21 @@ body{
         width: fit-content;
     }
     .main-content{
-        margin-left: 240px;
+        margin-left: 235px;
     }
     .side-bar ul li{
-        text-align: center;
-        width: 100%;
+        text-align: start;
+    }
+}
+
+@media (max-width: 576px){
+    .nav-top{
+        min-width: 505px;
+    }    
+    .main-content{
+        /* display: none; */
+    }
+    .side-bar{
+        display: none;
     }
 }
