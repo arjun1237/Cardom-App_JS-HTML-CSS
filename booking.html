@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="/styles/booking.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Saira:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Cardom</title>
+</head>
+<body>
+
+    <div class="container-fluid p-0">
+        <nav class="nav-top fixed nav-bg-main justify-content-start color-white-trans font-logo d-flex flex-row">
+            <div class="nav-brand flex-grow-1">
+                <i class="fa fa-car font-i-sm pr-2" aria-hidden="true"></i><a class="a-text-dec-none" href="index.html">Cardom</a><i class="fa fa-car font-i-sm pl-2" aria-hidden="true"></i>
+            </div>
+            <div class="navbar-list">
+                <ul>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="login.html">Sign In</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="nav-bar-support">
+
+        </div>
+        <nav class="side-bar fixed">
+            <ul>
+                <li><a href="selection.html">Book a Car</a></li>
+                <li><a href="#ht-cardom">How to Cardom</a></li>
+                <li><a href="#car-types">Types of Cars</a></li>
+                <li><a href="#cardom">Policies</a></li>
+                <li><a href="">Prestige Collections</a></li>
+            </ul>
+        </nav>
+        <div class="main-content">
+            <div class="booking-container p-5">
+
+                <!-- booking heading -->
+                <div class="mb-5">
+                    <h3>Tentative Booking Reciept</h3>
+                </div>
+
+                <!-- booking details -->
+                <div class="row">
+
+                    <!-- car to be booked: left side -->
+                    <div class="col-12 col-xl-6 p-0">
+                        <div class="card rounded-0">
+                            <div class="card-header text-center bg-dark text-light rounded-0">
+                                <h5 class="card-title m-0">Car Title: Brand + Model</h5>
+                            </div>
+                            <img class="img-fluid border-bottom" src="https://imgd.aeplcdn.com/664x374/n/cw/ec/41652/hyundai-aura-right-front-three-quarter6.jpeg?q=85" alt="">
+                            <div class="card-body bg-light mb-1">
+                                <table class="table mb-0">
+                                    <tbody class="card-text">
+                                      <tr>
+                                        <th class="border-top-0" scope="row">Power</th>
+                                        <td class="border-top-0 text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Motor Fuel</th>
+                                        <td>Diesel</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Usage</th>
+                                        <td>3500 Km</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Type</th>
+                                        <td>Sedan</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Seater</th>
+                                        <td>4</td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- booking info fillings: right side -->
+                    <div class="col-12 col-xl-6 p-0 booking-filling mt-3 mt-xl-0">
+                        <div class="card rounded-0">
+                            <div class="card-header text-center bg-dark text-light rounded-0">
+                                <h5 class="card-title m-0">Bill Tentative</h5>
+                            </div>
+                            <div class="card-body pb-2 bg-light">
+                                <div class="form-group row">
+                                    <label class="col-6 col-form-label">Date and Time of Requirement</label>
+                                    <div class="col-6">
+                                        <input class="form-control" type="datetime-local">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-6 col-form-label">Usage Hours (tentative) - &#8377;100/hr</label>
+                                    <div class="col-6">
+                                        <input class="form-control" type="number">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-6 col-form-label">Initial Fuel Requirement (tentative) - &#8377;83/litre</label>
+                                    <div class="col-6">
+                                        <input class="form-control" type="number">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-6 col-form-label">Do you require life insurance? (&#8377;3500)</label>
+                                    <div class="col-6 mt-1">
+                                        <input type="checkbox">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-6 col-form-label">Chauffeur Required? (&#8377;700/day)</label>
+                                    <div class="col-6 mt-1">
+                                        <input type="checkbox">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-6 col-form-label">Damage Insurance Cost</label>
+                                    <div class="col-6 mt-1">
+                                        <p>&#8377; 500</p>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-6 col-form-label">Deposit</label>
+                                    <div class="col-6 mt-1">
+                                        <p>&#8377; 2500</p>
+                                    </div>
+                                </div>
+                                <div class="form-group row h6">
+                                    <label class="col-6 col-form-label">Total Tentative</label>
+                                    <div class="col-6 mt-1">
+                                        <p>&#8377; 7500</p>
+                                    </div>
+                                </div>
+                                <div class="btn btn-primary btn-block pb-2">Make Advance Payment</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
