@@ -90,6 +90,46 @@ body {
     color: #cedce4;
 }
 
+.common-bg-dark{
+    background-color: #313a46;
+}
+
+.common-bg-light{
+    background-color: #c0cacf;
+}
+
+.a-text-dec-none{
+    text-decoration: none;
+    color: white;
+}
+
+.a-text-dec-none:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.a-text-dec-none:visited{
+    text-decoration: none;
+    color: white;
+}
+
+.a-text-dec-none:active{
+    text-decoration: none;
+    color: white;
+}
+
+.display-none{
+    display: none;
+}
+
+.common-color-light{
+    color: #cedce4;
+}
+
+.common-color-dark{
+    color: #262e38;
+}
+
 @media (min-width: 576px) {
     .side-bar {
         width: fit-content;
