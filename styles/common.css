@@ -1,55 +1,53 @@
-body{
+body {
     /* font-family: 'Saira', sans-serif; */
     color: #262e38;
 }
 
-.nav-bg-main{
+.nav-bg-main {
     background-color: #313a46;
 }
 
-.nav-top{
+.nav-top {
     z-index: 100;
-    font-family: 'Saira', sans-serif;
+    font-family: "Saira", sans-serif;
 }
 
-.color-white-trans{    
+.color-white-trans {
     color: #fff !important;
 }
 
-.font-i-sm{
+.font-i-sm {
     font-size: 23px;
     opacity: 75%;
     color: #00ffffe1;
 }
 
-.font-logo{
+.font-logo {
     font-size: 25px;
 }
 
-.fixed{
+.fixed {
     position: fixed;
     width: 100%;
 }
 
-.nav-bar-support{
+.nav-bar-support {
     height: 77px;
-    /* position: sticky; */
 }
 
-.nav-brand{
+.nav-brand {
     padding: 20px;
-    cursor: pointer;
 }
 
-.navbar-list > ul li{
+.navbar-list > ul li {
     display: inline;
     padding: 10px;
 }
 
 .navbar-list a,
-.side-bar a{
+.side-bar a {
     color: inherit;
-} 
+}
 
 .navbar-list > ul li,
 .side-bar ul li {
@@ -57,62 +55,61 @@ body{
     color: #8391a2;
 }
 
-.navbar-list > ul{
+.navbar-list > ul {
     margin: 20px 10px 10px 10px;
 }
 
 .navbar-list > ul li:hover,
-.side-bar ul li:hover{
+.side-bar ul li:hover {
     color: #cedce4;
     cursor: pointer;
     text-decoration: underline;
     /* line-height: 1px; */
 }
 
-.side-bar{
+.side-bar {
     background-color: #262e38;
     padding: 30px 43px 30px 0px;
     height: 87.8vh;
-    font-family: 'Saira', sans-serif;
+    font-family: "Saira", sans-serif;
 }
 
-.side-bar ul li{
+.side-bar ul li {
     list-style-type: none;
     margin-bottom: 10px;
     cursor: pointer;
     text-align: center;
 }
 
-.list-pack{
+.list-pack {
     border: 2px solid #c6ced6;
 }
 
-.bg-d-section{
+.bg-d-section {
     background-color: #313a46;
     color: #cedce4;
 }
 
-
 @media (min-width: 576px) {
-    .side-bar{
+    .side-bar {
         width: fit-content;
     }
-    .main-content{
+    .main-content {
         margin-left: 228px;
     }
-    .side-bar ul li{
+    .side-bar ul li {
         text-align: start;
     }
 }
 
-@media (max-width: 576px){
-    .nav-top{
+@media (max-width: 576px) {
+    .nav-top {
         min-width: 505px;
-    }    
-    .main-content{
+    }
+    .main-content {
         /* display: none; */
     }
-    .side-bar{
+    .side-bar {
         display: none;
     }
 }

@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="shortcut icon" href="https://stimg.cardekho.com/images/carexteriorimages/630x420/Hyundai/Verna/6788/1585562805709/front-left-side-47.jpg?tr=w-456">
-    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/register.css">
     <link rel="stylesheet" href="/styles/common.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Saira:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,33 +15,72 @@
 <body>
 
     <div class="container-fluid p-0">
-        <div class="nav-top fixed">
-            <nav class="nav-bg-main justify-content-start color-white-trans font-logo d-flex flex-row">
-                <div class="nav-brand flex-grow-1">
-                    <i class="fa fa-car font-i-sm pr-2" aria-hidden="true"></i>Cardom<i class="fa fa-car font-i-sm pl-2" aria-hidden="true"></i>
-                </div>
-                <div class="navbar-list">
-                    <ul>
-                        <li>Register</li>
-                        <li>Sign In</li>
-                        <li>About</li>
-                    </ul>
-                </div>
-            </nav>
-            <nav class="side-bar">
+        <nav class="nav-top fixed nav-bg-main justify-content-start color-white-trans font-logo d-flex flex-row">
+            <div class="nav-brand flex-grow-1">
+                <i class="fa fa-car font-i-sm pr-2" aria-hidden="true"></i>Cardom<i class="fa fa-car font-i-sm pl-2" aria-hidden="true"></i>
+            </div>
+            <div class="navbar-list">
                 <ul>
-                    <li>Book a Car</li>
-                    <li>How to Cardom</li>
-                    <li>Policies</li>
-                    <li>Prestige Collections</li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="login.html">Sign In</a></li>
+                    <li><a href="about.html">About</a></li>
                 </ul>
-            </nav>
-        </div>
+            </div>
+        </nav>
         <div class="nav-bar-support">
 
         </div>
+        <nav class="side-bar fixed">
+            <ul>
+                <li><a href="">Book a Car</a></li>
+                <li><a href="#ht-cardom">How to Cardom</a></li>
+                <li><a href="#car-types">Types of Cars</a></li>
+                <li><a href="#cardom">Policies</a></li>
+                <li><a href="">Prestige Collections</a></li>
+            </ul>
+        </nav>
         <div class="main-content">
-            
+            <div class="register-container mb-5">
+                <h3 class="text-center p-3 mt-4 mb-0">Registration</h3>
+                <form class="px-5 py-3 row">
+                    <div class="col-12 col-md-8 col-xl-6 offset-0 offset-md-2 offset-xl-3">
+                        <div class="form-group col-12">
+                            <label for="inputEmail">Name</label>
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Full Name">
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="inputEmail">Email</label>
+                            <input type="email" class="form-control" id="inputEmail">
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="inputPassword">Password</label>
+                            <input type="password" class="form-control" id="inputPassword">
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="inputAddress">License Number</label>
+                            <input type="text" class="form-control" id="inputAddress">
+                        </div>
+                        <div class="form-row col-12">
+                            <div class="form-group col-md-8">
+                                <label for="inputCity">Phone Number</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">+91</div>
+                                    </div>
+                                    <input type="number" class="form-control" id="inputCity">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 pr-0">
+                                <label for="inputZip">Age</label>
+                                <input type="number" class="form-control" id="inputZip">
+                            </div>
+                        </div>
+                        <div class="form-group col-12 my-3">
+                            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     
