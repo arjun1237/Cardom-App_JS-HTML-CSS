@@ -21,3 +21,13 @@
 .index-social{
     z-index: 100;
 }
+
+.index-type{
+    width: 200px;
+    margin: 0 auto;
+    background-color: rgb(0, 68, 68);
+}
+
+.index-type > h3{
+    color: #cedce4;
+}
