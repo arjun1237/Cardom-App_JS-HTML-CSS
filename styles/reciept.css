@@ -1,0 +1,32 @@
+.s-outer{
+    border: 2px solid;
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+}
+
+.s-middle{
+    border: 2px solid;
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.s-inner{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.card-body{
+    position: relative;
+}
