@@ -130,6 +130,18 @@ body {
     color: #262e38;
 }
 
+
+/* footer */
+.social-icons > i{
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.index-social{
+    z-index: 100;
+}
+
 @media (min-width: 576px) {
     .side-bar {
         width: fit-content;

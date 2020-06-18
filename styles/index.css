@@ -12,16 +12,6 @@
     background-size: cover;
 }
 
-.social-icons > i{
-    margin: 0 10px;
-    cursor: pointer;
-    font-size: 30px;
-}
-
-.index-social{
-    z-index: 100;
-}
-
 .index-type{
     width: 200px;
     margin: 0 auto;
