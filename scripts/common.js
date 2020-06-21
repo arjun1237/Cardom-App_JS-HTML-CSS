@@ -1,15 +1,15 @@
 
 // items for DB mocking
-locations = ['Bangalore', 'Hyderabad', 'Mumbai', 'Poona', 'Chennai', 'Delhi', 'Kolkata']
-roles = ['admin', 'super-admin', 'customer']
-carType = ['Sedan', 'SUV', 'Hatchback', 'Minivan', 'Prestige']
-status = ['booked', 'onroad', 'returned-need-confirm', 'returned']
-fuel = ['diesel', 'petrol']
+const locations = ['Bangalore', 'Hyderabad', 'Mumbai', 'Poona', 'Chennai', 'Delhi', 'Kolkata']
+export const roles = ['admin', 'super-admin', 'customer']
+const carType = ['Sedan', 'SUV', 'Hatchback', 'Minivan', 'Prestige']
+const status = ['booked', 'onroad', 'returned-need-confirm', 'returned']
+const fuel = ['diesel', 'petrol']
 
 // creates and stores data in DB
 //-------------------------------------------------------
-var vehicleObj = manageVehicle()
-var userObj = manageUsers()
+export var vehicleObj = manageVehicle()
+export var userObj = manageUsers()
 
 
 // models and their properties
@@ -37,7 +37,7 @@ function VehicleInfo(id, car, location, isUltimate, usage){
     this.usage = usage
 }
 
-function User(id, name, age, email, phone, license, password, role){
+export function User(id, name, age, email, phone, license, password, role){
     this.id = id
     this.name = name
     this.age = age
@@ -50,13 +50,13 @@ function User(id, name, age, email, phone, license, password, role){
 
 
 function manageUsers(){
-    userID = 0
+    let userID = 0
 
     // mock admins details in DB (not real)
-    admins = ['Mithun', 'Surya', 'Neha', 'Vipin', 'Wazir', 'Akash', 'Sultan', 'Chirag', 'Pawan', 'Mahi', 'Manideep']
-    pass = 'pass123'
-    license = '87655ADFSG'
-    phone = '8767676543'
+    let admins = ['Mithun', 'Surya', 'Neha', 'Vipin', 'Wazir', 'Akash', 'Sultan', 'Chirag', 'Pawan', 'Mahi', 'Manideep']
+    let pass = 'pass123'
+    let license = '87655ADFSG'
+    let phone = '8767676543'
     setUserID()
     
     function setUserID(){
@@ -103,7 +103,7 @@ function manageUsers(){
 }
 
 function manageVehicle(){
-    carID = 0
+    let carID = 0
     setCarID()
 
     function setCarID(){
@@ -222,7 +222,7 @@ function extractSportCars(){
 
 // helper functions
 //--------------------------------------------------------------------------------------------------------------------------------- 
-function checkCarsinStorage(){        
+export function checkCarsinStorage(){        
     var cars = localStorage.getItem('cars')
     if(cars === null || cars === undefined){
         return null
@@ -230,7 +230,7 @@ function checkCarsinStorage(){
     return JSON.parse(cars)
 }
 
-function checkUsersinStorage(){   
+export function checkUsersinStorage(){   
     var users = localStorage.getItem('users')
     if(users === null || users === undefined){
         return null
@@ -238,7 +238,7 @@ function checkUsersinStorage(){
     return JSON.parse(users)
 }
 
-function random(max, min){
+export function random(max, min){
     max = Math.abs(max)
     min = Math.abs(min)
     var rand = Math.round(Math.random() * Math.abs(max-min))
@@ -256,4 +256,5 @@ window.addEventListener('load', addEvents)
 function addEvents(){
     
 }
+
 

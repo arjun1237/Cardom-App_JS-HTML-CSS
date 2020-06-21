@@ -138,6 +138,11 @@ body {
     font-size: 30px;
 }
 
+.valid-check{
+    border-color: crimson;
+    box-shadow: 0px 0px 2px 2px #dc143ca1;
+}
+
 .index-social{
     z-index: 100;
 }
