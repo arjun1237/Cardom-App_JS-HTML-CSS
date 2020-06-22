@@ -247,6 +247,22 @@ export function random(max, min){
 
 
 
+// input validation helpers
+export function rightInput(obj){
+    obj.classList.remove("valid-check")
+    obj.parentElement
+        .nextElementSibling.querySelector('small')
+        .classList.add('display-none')
+}
+
+export function wrongInput(obj){
+    obj.classList.add("valid-check")
+    obj.parentElement
+        .nextElementSibling.querySelector('small')
+        .classList.remove('display-none')
+}
+
+
 
 
 // on-load events relate to the index page
