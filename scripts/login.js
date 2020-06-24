@@ -17,7 +17,7 @@ function checkEmail(email){
     return false
 }
 
-function addFocusOutEvent(callback, obj){
+function addBlurEvent(callback, obj){
     obj.addEventListener('blur', function(){
         callback(obj.value)
     })

@@ -1,10 +1,12 @@
 import * as common from './common.js'
+import {makeModal, popUpModal} from './modal.js'
 
 window.addEventListener('load', addEvents)
 
 function addEvents(){
     addBlurEventToInputs()
     document.getElementById('sign-up').addEventListener('click', register)
+    makeModal(document.querySelector('.main-content'))
 }
 
 function register(){
@@ -51,7 +53,8 @@ function checkAllInput(){
         && checkPhone(phoneObj.value)
         && checkAge(ageObj.value)){
             if(emailDuplicate(emailObj.value)){
-                document.getElementById('regAlertInfo').textContent = "Looks like the email provided has already been registered!"
+                let modalText = 'Looks like the email provided has already been registered!'
+                popUpModal('warning', 'Understood', modalText, 'Error..!')
                 emailObj.value = ''
                 document.getElementById('modalHelper').click()
                 emailObj.classList.add("valid-check")
@@ -69,8 +72,8 @@ function checkAllInput(){
             }
     }
     else{
-        document.getElementById('regAlertInfo').textContent = "Please provide valid informations to register."
-        document.getElementById('modalHelper').click()
+        let modalText = 'Please provide valid informations to register.'
+        popUpModal('warning', 'UNderstood', modalText, 'Error..!')
     }
 }
 
