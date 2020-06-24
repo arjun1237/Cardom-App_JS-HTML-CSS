@@ -18,7 +18,7 @@
     </div>
 </div> */}
 
-export function makeModal(obj){
+export function makeModal(parentObj){
     let p = document.createElement('p')
     p.setAttribute('data-toggle', 'modal')
     p.setAttribute('data-target', '#staticBackdrop')
@@ -89,7 +89,7 @@ export function makeModal(obj){
     modalContent.append(modalHeader, modalBody, footer)
     modalDialog.append(modalContent)
     modalFade.append(modalDialog)
-    obj.append(p, modalFade)
+    parentObj.append(p, modalFade)
 }
 
 export function popUpModal(btnColor, btnWord, text, heading){

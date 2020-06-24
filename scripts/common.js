@@ -1,10 +1,10 @@
 
 // items for DB mocking
-const locations = ['Bangalore', 'Hyderabad', 'Mumbai', 'Poona', 'Chennai', 'Delhi', 'Kolkata']
+export const locations = ['Bangalore', 'Hyderabad', 'Mumbai', 'Poona', 'Chennai', 'Delhi', 'Kolkata']
 export const roles = ['admin', 'super-admin', 'customer']
-const carType = ['Sedan', 'SUV', 'Hatchback', 'Minivan', 'Prestige']
-const status = ['booked', 'onroad', 'returned-need-confirm', 'returned']
-const fuel = ['diesel', 'petrol']
+export const carType = ['Sedan', 'SUV', 'Hatchback', 'Minivan', 'Prestige']
+export const status = ['booked', 'onroad', 'returned-need-confirm', 'returned']
+export const fuel = ['diesel', 'petrol']
 
 // creates and stores data in DB
 //-------------------------------------------------------

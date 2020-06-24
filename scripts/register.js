@@ -44,8 +44,8 @@ function addBlurEvent(callback, obj){
 }
 
 function checkAllInput(){
-    console.log(checkName(nameObj.value), checkEmail(emailObj.value), checkPassword(passObj.value),
-                 checkLicense(licenseObj.value), checkPhone(phoneObj.value), checkAge(ageObj.value))
+    // console.log(checkName(nameObj.value), checkEmail(emailObj.value), checkPassword(passObj.value),
+                //  checkLicense(licenseObj.value), checkPhone(phoneObj.value), checkAge(ageObj.value))
     if(checkName(nameObj.value) 
         && checkEmail(emailObj.value)
         && checkPassword(passObj.value)
@@ -72,8 +72,14 @@ function checkAllInput(){
             }
     }
     else{
+        checkName(nameObj.value) 
+        checkEmail(emailObj.value)
+        checkPassword(passObj.value)
+        checkLicense(licenseObj.value)
+        checkPhone(phoneObj.value)
+        checkAge(ageObj.value)
         let modalText = 'Please provide valid informations to register.'
-        popUpModal('warning', 'UNderstood', modalText, 'Error..!')
+        popUpModal('warning', 'Understood', modalText, 'Error..!')
     }
 }
 
@@ -90,6 +96,10 @@ function emailDuplicate(email){
     common.rightInput(emailObj)
     return false
 }
+
+
+// functions to check inputs
+// ----------------------------------------------------------------
 
 function checkName(name){
     if(name.trim().length > 0){
