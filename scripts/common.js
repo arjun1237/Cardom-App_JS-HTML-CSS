@@ -5,6 +5,7 @@ export const roles = ['admin', 'super-admin', 'customer']
 export const carType = ['Sedan', 'SUV', 'Hatchback', 'Minivan', 'Prestige']
 export const status = ['booked', 'onroad', 'returned-need-confirm', 'returned']
 export const fuel = ['diesel', 'petrol']
+export const powers = [1, 2, 3, 4, 5]
 
 // creates and stores data in DB
 //-------------------------------------------------------
@@ -181,7 +182,7 @@ function extractHatchbacks(){
     hatchbacks.push(new Car('Ford', 'Fiesta ST', fuel[0], 3, 43, 3, carType[2], 3780, "https://images.hgmsites.net/hug/2019-ford-fiesta-se-hatch-angular-front-exterior-view_100674447_h.jpg"))
     hatchbacks.push(new Car('BMW', 'i3S', fuel[1], 4, 56, 4, carType[2], 6500, "https://cars.usnews.com/static/images/Auto/izmo/i6511875/2017_bmw_i3_angularfront.jpg"))
     hatchbacks.push(new Car('Volkswagen', 'Golf GTI', fuel[1], 3, 62, 4, carType[2], 5000, "https://images.dealer.com/ddc/vehicles/2020/Volkswagen/Golf%20GTI/Hatchback/trim_20T_SE_493086/color/Pure%20White-0Q0Q-233%2C234%2C229-640-en_US.jpg"))
-    hatchbacks.push(new Car('Maruti Suzuki', 'Baleno', fuel[0], 3, 45, 4, carType[2], 3450, "https://teja9.kuikr.com/cb1/reviews/Maruti-Suzuki-Baleno_1.jpeg"))
+    hatchbacks.push(new Car('Maruti Suzuki', 'Baleno', fuel[0], 3, 45, 4, carType[2], 3450, "https://images.carandbike.com/car-images/colors/maruti-suzuki/baleno/maruti-suzuki-baleno-metalic-premium-silver.webp?v=1567509589"))
     hatchbacks.push(new Car('Tata', 'Altos', fuel[0], 3, 60, 4, carType[2], 2450, "https://images.carandbike.com/car-images/colors/tata/altroz/tata-altroz-avenue-white.webp?v=1579669942"))
     hatchbacks.push(new Car('Maruti Suzuki', 'Swift', fuel[0], 2, 42, 4, carType[2], 2300, "https://imgd.aeplcdn.com/664x374/cw/ec/26742/Maruti-Suzuki-New-Swift-Exterior-117654.jpg"))
     return hatchbacks
@@ -262,6 +263,13 @@ export function wrongInput(obj){
         .classList.remove('display-none')
 }
 
+
+// add attribute helper
+export function setAttributes(attributes){
+    for(let key in attributes){
+        this.setAttribute(key, attributes[key])
+    }
+}
 
 
 

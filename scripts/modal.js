@@ -18,6 +18,8 @@
     </div>
 </div> */}
 
+import {setAttributes} from './common.js'
+
 export function makeModal(parentObj){
     let p = document.createElement('p')
     p.setAttribute('data-toggle', 'modal')
@@ -105,10 +107,4 @@ export function popUpModal(btnColor, btnWord, text, heading){
     textPart.innerHTML = text
     headingText.innerHTML = heading
     document.getElementById('modalHelper').click()
-}
-
-function setAttributes(attributes){
-    for(let key in attributes){
-        this.setAttribute(key, attributes[key])
-    }
 }

@@ -18,3 +18,10 @@
     left: 50%;
     transform: translateX(-50%);
 }
+
+.card-header > h5,
+.card-footer > p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
