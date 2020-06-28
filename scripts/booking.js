@@ -21,7 +21,7 @@ const detailTitle = document.getElementById('detail-title')
 
 const booking = bookingCalculation()
 
-function Booking(id, carID, userID, payment, chauffeur, carBookedFor, bookinDate, usage, InitialFuel, lifeInsurance, damageInsurance){
+function Booking(id, carID, userID, payment, chauffeur, carBookedFor, bookinDate, usage, initialFuel, lifeInsurance, damageInsurance){
     this.id = id
     this.carID = carID
     this.userID = userID
@@ -30,7 +30,7 @@ function Booking(id, carID, userID, payment, chauffeur, carBookedFor, bookinDate
     this.carBookedFor = carBookedFor
     this.bookinDate = bookinDate
     this.usage = usage
-    this.InitialFuel = InitialFuel
+    this.initialFuel = initialFuel
     this.lifeInsurance = lifeInsurance
     this.damageInsurance = damageInsurance
 }

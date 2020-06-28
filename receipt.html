@@ -44,73 +44,73 @@
                     <ul class="m-auto text-danger h6">
                         <li>Copy of receipt has been emailed to you and a confirmation SMS has been sent as well.</li>
                     </ul>
-                    <div class="card text-center col-12 col-md-8 col-lg-6 p-0 offset-md-2 offset-lg-3 my-5">
+                    <div class="card text-center col-12 col-md-8 p-0 offset-md-2 my-5">
                         <div class="card-header bg-dark text-light">
-                            <h3 class="text-center">receipt (Tentative)</h3>
+                            <h3 class="text-center">Receipt (Tentative)</h3>
                         </div>
-                        <div class="card-body">
-                            <table class="table">
+                        <div class="card-body p-0">
+                            <table class="table m-0">
                                 <tbody>
                                   <tr>
-                                    <th class="border-top-0 h5 pb-4" colspan="2">Car Title - brand + Model</th>
+                                    <th class="border-top-0 h5 pb-4 bg-info text-light" colspan="2" id="receipt-title"></th>
                                   </tr>
                                   <tr>
                                     <td>Booking ID</td>
-                                    <td>76765676868676</td>
+                                    <td id="receipt-id"></td>
                                   </tr>
                                   <tr>
                                     <td>Booked for (date / time)</td>
-                                    <td>20th June 2020 12:30 hrs</td>
+                                    <td id="receipt-date-time"></td>
                                   </tr>
                                   <tr>
-                                    <td>Usage Hours (Tentative) - 45 hrs</td>
-                                    <td>&#8377; 4500</td>
+                                    <td>Usage Hours (Tentative) - <b id="receipt-usage"></b></td>
+                                    <td id="receipt-usage-money"></td>
                                   </tr>
                                   <tr>
-                                    <td>Initial Fuel Requirement - 20 litres</td>
-                                    <td>&#8377; 1660</td>
+                                    <td>Initial Fuel Requirement - <b id="receipt-fuel"></b></td>
+                                    <td id="receipt-fuel-money"></td>
                                   </tr>
                                   <tr>
-                                    <td>Chauffeur Services? Yes</td>
-                                    <td>&#8377; 1400</td>
+                                    <td>Chauffeur Services? <b id="receipt-chauffeur-bool"></b></td>
+                                    <td id="receipt-chauffeur"></td>
                                   </tr>
                                   <tr>
-                                    <td>Life Insurance Taken? No</td>
-                                    <td>&#8377; 0</td>
+                                    <td>Life Insurance Taken? <b id="receipt-lifeInsure-bool"></b></td>
+                                    <td id="receipt-lifeInsure"></td>
                                   </tr>
                                   <tr>
                                     <td>Damage Insurance</td>
-                                    <td>&#8377; 500</td>
+                                    <td id="receipt-damage"></td>
                                   </tr>
                                   <tr>
                                     <td>Deposit</td>
-                                    <td>&#8377; 2500</td>
+                                    <td id="receipt-deposit"></td>
                                   </tr>
                                   <tr class="bg-light">
                                     <th>Total</th>
-                                    <th>&#8377; 10,500</th>
+                                    <th id="receipt-total"></th>
                                   </tr>
                                   <tr class="bg-light">
                                     <th>GST</th>
-                                    <th>&#8377; 1890 (18%)</th>
+                                    <th id="receipt-gst"></th>
                                   </tr>
-                                  <tr class="bg-light">
+                                  <tr class="bg-dark text-light h4">
                                     <th>Amount Paid (Advance)</th>
-                                    <th>&#8377; 12,390</th>
+                                    <th id="receipt-amount-paid"></th>
                                   </tr>
                             </table>
                             <div class="stamp">
                                 <div class="s-outer border-danger">
                                     <div class="s-middle border-danger">
                                         <div class="s-inner text-danger">
-                                            <h2>PAID</h2>
+                                            <p class="display-3">PAID</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer bg-success border text-light">
-                            <h4>Happy Journey..!</h4>
+                        <div class="card-footer bg-success text-light py-4">
+                            <h4><i class="fa fa-car pr-3"></i> Happy Journey..! <i class="fa fa-car pl-3"></i></h4>
                         </div>
                     </div>
                 </div>
@@ -133,5 +133,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="./scripts/receipt.js"></script>
 </body>
 </html>

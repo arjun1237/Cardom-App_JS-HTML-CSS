@@ -1,19 +1,19 @@
 .s-outer{
     border: 2px solid;
-    width: 150px;
-    height: 150px;
-    border-radius: 75px;
+    width: 250px;
+    height: 250px;
+    border-radius: 125px;
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(-30%);
 }
 
 .s-middle{
     border: 2px solid;
-    width: 120px;
-    height: 120px;
-    border-radius: 60px;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
     position: absolute;
     left: 50%;
     top: 50%;
