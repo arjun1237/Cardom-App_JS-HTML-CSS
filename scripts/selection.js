@@ -16,6 +16,7 @@ function addEvents(){
 let selectionObj = selection()
 
 function selection(){
+    removeNoCarBanner()
     let [locationVal, carTypeVal, fuelTypeVal, powerTypeVal] = [null, null, null, null]
 
     function changeLocation(val){
@@ -94,8 +95,22 @@ function selection(){
         })
 
         wrapper.innerHTML = ''
+        let bookings = localStorage.getItem('bookings')
+        if(bookings === null){
+            bookings = []
+        }
+        else{
+            bookings = JSON.parse(bookings)
+        }
+        let ids = []
+        bookings.forEach(b => ids.push(b.carID))
+
         if(cars.length !== 0){
-            cars.forEach(car => wrapper.append(carDisplay(car)) )
+            removeNoCarBanner()
+            cars.forEach(car => {
+                let temp = ids.indexOf(car.id) === -1 ? carDisplay(car, false) : carDisplay(car, true)
+                wrapper.append(temp) 
+            })
         }
         else{            
             displayNocarBanner()
@@ -153,7 +168,7 @@ function addOptions(select, options, optionHead, defaultDisable){
     })
 }
 
-function carDisplay(car){
+function carDisplay(car, isBooked){
     const carDetail = car.car
     const id = car.id
     const usage = car.usage
@@ -260,18 +275,39 @@ function carDisplay(car){
     bookBtn.append(pBtn) 
     bookAppear.append(bookCover)
     cardBody.append(detailsTable, bookAppear)
-    cardDetailing.append(carImg, cardBody)
 
-    cardDetailing.addEventListener('mouseover', () => {
-        bookAppear.classList.remove('display-none')
-    })
+    if(isBooked){
+        const booked = document.createElement('div')
+        booked.style.width = Object.assign(booked.style, {top: "0", left: "0", position: "absolute", zIndex: "10", width: "100%", height: "100%"})
+        booked.classList.add('booked')
 
-    cardDetailing.addEventListener('mouseout', () => {
-        bookAppear.classList.add('display-none')
-    })
+        const stamp = ` <div class="stamp">
+                            <div class="s-outer border-light outer-size">
+                                <div class="s-middle border-light middle-size">
+                                    <div class="s-inner text-light">
+                                        <p class="h4">Booked</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`
+        booked.innerHTML = stamp
+
+        cardDetailing.append(carImg, cardBody, booked)
+    }
+    else{
+        cardDetailing.append(carImg, cardBody)
+
+        cardDetailing.addEventListener('mouseover', () => {
+            bookAppear.classList.remove('display-none')
+        })
+    
+        cardDetailing.addEventListener('mouseout', () => {
+            bookAppear.classList.add('display-none')
+        })
+    }
     
     const footer = document.createElement('div')
-    footer.classList.add('card-footer', 'common-bg-light')
+    footer.classList.add('card-footer', 'bg-secondary', 'text-white')
     const footerP = document.createElement('p')
     footerP.classList.add('mb-0')
     footerP.textContent = seater + ' seater'

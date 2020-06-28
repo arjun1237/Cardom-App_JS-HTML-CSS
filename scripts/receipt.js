@@ -1,3 +1,5 @@
+import {addCommatoNum} from './common.js'
+
 const receiptTitle = document.getElementById('receipt-title')
 const receiptID = document.getElementById('receipt-id')
 const receiptDT = document.getElementById('receipt-date-time')
@@ -62,23 +64,23 @@ function displayData(booking, carObj){
     receiptID.textContent = booking.id
     receiptDT.textContent = new Date(booking.carBookedFor).toString().slice(0, 21) + " hrs"
     receiptUsage.textContent = booking.usage + " hrs"
-    receiptUsageMoney.innerHTML = "&#8377; " + (booking.usage * 50)
+    receiptUsageMoney.innerHTML = "&#8377; " + addCommatoNum(booking.usage * 50)
     receiptFuel.textContent = booking.initialFuel + " litres"
-    receiptFuelMoney.innerHTML = "&#8377; " + (booking.initialFuel * 83)
+    receiptFuelMoney.innerHTML = "&#8377; " + addCommatoNum(booking.initialFuel * 83)
     receiptChauffeurBool.textContent = booking.chauffeur ? "Yes" : "No"
-    receiptChauffeur.innerHTML = `&#8377; ${booking.chauffeur? Math.ceil(booking.usage/24)*700 : 0}` 
+    receiptChauffeur.innerHTML = `&#8377; ${booking.chauffeur? addCommatoNum(Math.ceil(booking.usage/24)*700) : 0}` 
     receiptLifeBool.textContent = booking.lifeInsurance ? "Yes" : "No"
-    receiptLife.innerHTML = `&#8377; ${booking.lifeInsurance? 3500 : 0}`
-    receiptDamage.innerHTML = "&#8377; " + booking.damageInsurance
-    receiptDeposit.innerHTML = "&#8377; " + car.deposit
+    receiptLife.innerHTML = `&#8377; ${booking.lifeInsurance? '3,500' : 0}`
+    receiptDamage.innerHTML = "&#8377; " + addCommatoNum(booking.damageInsurance)
+    receiptDeposit.innerHTML = "&#8377; " + addCommatoNum(car.deposit)
     let total = (booking.usage*50) + (booking.initialFuel*83) 
                 + (booking.lifeInsurance ? 3500 : 0) 
                 + (booking.chauffeur ? 700*Math.ceil(booking.usage/24) : 0) 
                 + booking.damageInsurance + car.deposit
-    receiptTotal.innerHTML = "&#8377; " + total
+    receiptTotal.innerHTML = "&#8377; " + addCommatoNum(total)
     let GST = Math.ceil(total*0.18)
-    receiptGST.innerHTML = `&#8377; ${GST} (18%)`
-    receiptAmtPaid.innerHTML = '&#8377; ' + (total + GST)
+    receiptGST.innerHTML = `&#8377; ${addCommatoNum(GST)} (18%)`
+    receiptAmtPaid.innerHTML = '&#8377; ' + addCommatoNum(total + GST)
 }
 
 function returnToSelection(){

@@ -1,4 +1,4 @@
-import {damageInsurance} from './common.js'
+import {damageInsurance, addCommatoNum} from './common.js'
 
 const timeInput = document.getElementById('booking-time')
 const usageInput = document.getElementById('booking-car-usage')
@@ -49,11 +49,13 @@ function displayCarDetail(carObj){
     let car = carObj.car
     detailImg.src = car.img
     detailImg.style.height = '297px'
+    detailImg.style.width = '75%'
+    detailImg.style.margin = 'auto'
     detailImg.alt = car.name + " " + car.model
     let power = car.power
     detailPower.innerHTML = [ ...( new Array(power).fill('&#9733;') ), ...( new Array(5-power).fill('&#9734;') ) ].join(' ')
     detailFuel.textContent = car.fuel[0].toUpperCase() + car.fuel.slice(1)
-    detailUsage.textContent = carObj.usage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " Km"
+    detailUsage.textContent = addCommatoNum(carObj.usage) + " Km"
     detailType.textContent = car.type
     detailSeater.textContent = car.seater
     detailTitle.textContent = car.name + " " + car.model
@@ -246,9 +248,9 @@ function bookingCalculation(){
     }
 
     function displayData(){
-        damageInsInput.innerHTML = "&#8377; " + damageInsure
-        depositInput.innerHTML = "&#8377; " + deposit
-        totalInput.innerHTML = "&#8377; " + ( (usage*50) + (fuel*83) + (lifeInsure ? 3500 : 0) 
+        damageInsInput.innerHTML = "&#8377; " + addCommatoNum(damageInsure)
+        depositInput.innerHTML = "&#8377; " + addCommatoNum(deposit)
+        totalInput.innerHTML = "&#8377; " + addCommatoNum( (usage*50) + (fuel*83) + (lifeInsure ? 3500 : 0) 
                                         + (chauffeur ? 700*Math.ceil(usage/24) : 0) 
                                         + damageInsure + deposit )
     }

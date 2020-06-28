@@ -1,6 +1,5 @@
 .book-cover{
-    background-color: #343a40b0;
-    /* opacity: 70%; */
+    background-color: #22921f9d;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -24,4 +23,20 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.booked{
+    background-color: #030303a9;
+}
+
+.outer-size{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+}
+
+.middle-size{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
 }

@@ -253,6 +253,10 @@ export function random(max, min){
     return rand + min + 1
 }
 
+export function addCommatoNum(num){
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+}
+
 
 
 // input validation helpers
