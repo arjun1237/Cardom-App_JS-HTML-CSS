@@ -130,6 +130,10 @@ body {
     color: #262e38;
 }
 
+.space{
+    height: 200px;
+}
+
 
 /* footer */
 .social-icons > i{
@@ -145,6 +149,10 @@ body {
 
 .index-social{
     z-index: 100;
+}
+
+.width-fit{
+    width: fit-content;
 }
 
 @media (min-width: 576px) {

@@ -1,46 +1,3 @@
-{/* <div class="col-12 col-md-6 col-xl-4 mb-4 common-color-dark">
-    <div class="card text-center common-color">
-        <div class="card-header bg-dark text-light">
-            <h5 class="card-title mb-2">Car Title</h5>
-        </div>
-        <div class="card-detailing">
-            <img class="img-fluid border-bottom" src="https://imgd.aeplcdn.com/664x374/n/cw/ec/41652/hyundai-aura-right-front-three-quarter6.jpeg?q=85" alt="">
-            <div class="card-body book-body">
-                <table class="table mb-0">
-                    <tbody class="card-text">
-                        <tr>
-                            <th class="border-top-0" scope="row">Power</th>
-                            <td class="border-top-0 text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Motor Fuel</th>
-                            <td>Diesel</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Usage</th>
-                            <td>3500 Km</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Type</th>
-                            <td>Sedan</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="book-appear display-none">
-                    <div class="book-cover">
-                    </div>
-                    <div class="book-btn">
-                        <p class="btn btn-dark btn-lg">Book Now</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card-footer common-bg-light">
-            <p class="mb-0">4 seater</p>
-        </div>
-    </div> 
-</div> */}
-
 import {locations, powers, fuel, carType, setAttributes} from './common.js'
 
 window.addEventListener('load', addEvents)
@@ -48,11 +5,104 @@ const selectCity = document.getElementById('selectCity')
 const selectFuel = document.getElementById('selectFuel')
 const selectPower = document.getElementById('selectPower')
 const selectType = document.getElementById('selectType')
+const banner = document.getElementById('no-car-banner')
 
 function addEvents(){
-    addOptions(selectCity, locations, 'Choose')
+    addOptions(selectCity, locations, 'Choose', true)
     addEventToCity()
     addFilters()
+}
+
+let selectionObj = selection()
+
+function selection(){
+    let [locationVal, carTypeVal, fuelTypeVal, powerTypeVal] = [null, null, null, null]
+
+    function changeLocation(val){
+        if(locations.indexOf(val) === -1){
+            locationVal = null
+        }
+        else{
+            locationVal = val
+        }
+        filterCars()
+    }
+
+    function changeType(val){
+        if(carType.indexOf(val) === -1){
+            carTypeVal = null
+        }
+        else{
+            carTypeVal = val
+        }
+        filterCars()
+    }
+
+    function changeFuel(val){
+        if(fuel.indexOf(val) === -1){
+            fuelTypeVal = null
+        }
+        else{
+            fuelTypeVal = val
+        }
+        filterCars()
+    }
+
+    function changePower(val){
+        val = Number(val)
+        if(powers.indexOf(val) === -1){
+            powerTypeVal = null
+        }
+        else{
+            powerTypeVal = val
+        }
+        filterCars()
+    }
+
+    function displayNocarBanner(){
+        banner.classList.remove('display-none')
+    }
+    
+    function removeNoCarBanner(){
+        banner.classList.add('display-none')
+    }
+
+    function filterCars(){
+        let cars = localStorage.getItem('cars')
+        const wrapper = document.getElementById('all-cars')
+    
+        if(cars === null){
+            displayNocarBanner()
+            return
+        }
+        cars = JSON.parse(cars)
+        if(cars === undefined || cars.length === 0){
+            displayNocarBanner()
+            return
+        }
+        
+        // if location is null, that means the location is not selected, so cars wont be displayed
+        cars = cars.filter(car => {
+            let carObj = car.car
+            let indCarType = carObj.type
+            let indCarFuel = carObj.fuel
+            let indCarPower = carObj.power
+            return ( car.location === locationVal
+                && (carTypeVal === null || indCarType === carTypeVal) 
+                && (powerTypeVal === null || indCarPower === powerTypeVal)
+                && (fuelTypeVal === null || indCarFuel === fuelTypeVal) )
+        })
+
+        wrapper.innerHTML = ''
+        if(cars.length !== 0){
+            cars.forEach(car => wrapper.append(carDisplay(car)) )
+        }
+        else{            
+            displayNocarBanner()
+        }
+    }
+
+    return {changeLocation, changeType, changeFuel, changePower}    
 }
 
 function addEventToCity(){
@@ -62,25 +112,29 @@ function addEventToCity(){
 function displayFiltersCars(){
     var div = document.getElementById('selection-cars')
     div.classList.remove('display-none')
-    displayCars(event.target.value)
-}
-
-function displayNocarBanner(){
-
+    selectionObj.changeLocation(event.target.value)
 }
 
 function addFilters(){
-    addOptions(selectType, carType, 'Car type')
-    addOptions(selectFuel, fuel, 'Motor Fuel')
-    addOptions(selectPower, powers, 'Minimum Power')
+    addOptions(selectType, carType, 'Car type (any)', false)
+    addOptions(selectFuel, fuel, 'Motor Fuel (any)', false)
+    addOptions(selectPower, powers, 'Minimum Power (any)', false)
     addEventsToFilter()
 }
 
 function addEventsToFilter(){
-    selectFuel.addEventListener('change', )
+    selectType.addEventListener('change', () =>{
+        selectionObj.changeType(event.target.value)
+    })
+    selectFuel.addEventListener('change', () =>{
+        selectionObj.changeFuel(event.target.value)
+    })
+    selectPower.addEventListener('change', () =>{
+        selectionObj.changePower(event.target.value)
+    })
 }
 
-function addOptions(select, options, optionHead){
+function addOptions(select, options, optionHead, defaultDisable){
     if(select === null){
         return
     }
@@ -88,7 +142,7 @@ function addOptions(select, options, optionHead){
     option1.value = 'null'
     option1.textContent = optionHead + '...'
     option1.selected = true
-    option1.disabled = true
+    if(defaultDisable) option1.disabled = true
     select.append(option1)
 
     options.forEach(key => {
@@ -96,27 +150,6 @@ function addOptions(select, options, optionHead){
         option.value = key
         option.textContent = key
         select.append(option)
-    })
-}
-
-function displayCars(location){
-    let cars = localStorage.getItem('cars')
-    const wrapper = document.getElementById('all-cars')
-
-    if(cars === null){
-        displayNocarBanner()
-        return
-    }
-    cars = JSON.parse(cars)
-    if(cars === undefined || cars.length === 0){
-        displayNocarBanner()
-        return
-    }
-    cars.filter(x => x.location === location).forEach(car => {
-        if(car === null || undefined || car.car === null || car.car === undefined){
-            return
-        }
-        wrapper.append(carDisplay(car))
     })
 }
 
@@ -133,8 +166,7 @@ function carDisplay(car){
     const power = carDetail.power
 
     let topLayer = document.createElement('div')
-    topLayer.classList.add('col-12', 'col-md-6', 'col-xl-4', 'mb-4', 'common-color-dark')   
-    topLayer.setAttribute('data-cardID', id) 
+    topLayer.classList.add('col-12', 'col-md-6', 'col-xl-4', 'mb-4', 'common-color-dark') 
 
     const card = document.createElement('div')
     card.classList.add('card', 'text-center', 'common-color')
@@ -147,7 +179,7 @@ function carDisplay(car){
     cardHeader.append(cardTitle)
 
     const cardDetailing = document.createElement('div')
-    cardDetailing.classList.add('card-detailing')
+    cardDetailing.classList.add('card-detailing') 
 
     const carImg = document.createElement('img')
     carImg.classList.add('img-fluid', 'border-bottom')
@@ -198,7 +230,6 @@ function carDisplay(car){
     }
 
     for(let key in trs){
-        // console.log(key, trs[key])
         let tr = document.createElement('tr')
         let th = document.createElement('th')
         let td = document.createElement('td')
@@ -222,10 +253,22 @@ function carDisplay(car){
     const pBtn = document.createElement('p')
     pBtn.classList.add('btn', 'btn-dark', 'btn-lg')
     pBtn.textContent = 'Book Now'
-    bookBtn.append(pBtn)
-    bookAppear.append(bookCover, bookBtn)
+
+    pBtn.addEventListener('click', () => { goToBooking(id) })
+
+    bookCover.append(bookBtn)
+    bookBtn.append(pBtn) 
+    bookAppear.append(bookCover)
     cardBody.append(detailsTable, bookAppear)
     cardDetailing.append(carImg, cardBody)
+
+    cardDetailing.addEventListener('mouseover', () => {
+        bookAppear.classList.remove('display-none')
+    })
+
+    cardDetailing.addEventListener('mouseout', () => {
+        bookAppear.classList.add('display-none')
+    })
     
     const footer = document.createElement('div')
     footer.classList.add('card-footer', 'common-bg-light')
@@ -237,4 +280,9 @@ function carDisplay(car){
     topLayer.append(card)
 
     return topLayer
+}
+
+function goToBooking(id){
+    localStorage.setItem('car-selection', id+'')
+    location.href = 'booking.html'
 }

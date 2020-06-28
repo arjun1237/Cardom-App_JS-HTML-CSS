@@ -6,6 +6,13 @@ export const carType = ['Sedan', 'SUV', 'Hatchback', 'Minivan', 'Prestige']
 export const status = ['booked', 'onroad', 'returned-need-confirm', 'returned']
 export const fuel = ['diesel', 'petrol']
 export const powers = [1, 2, 3, 4, 5]
+export const damageInsurance = { 
+    'Sedan' : 750, 
+    'SUV' : 1200, 
+    'Hatchback' : 1350, 
+    'Minivan' : 2350, 
+    'Prestige' : 3800 
+}
 
 // creates and stores data in DB
 //-------------------------------------------------------

@@ -42,15 +42,16 @@
             <div class="booking-container p-5">
 
                 <!-- booking heading -->
-                <div class="mb-5">
+                <div class="mb-5 d-flex justify-content-between">
                     <h3>Booking Detail Fill Up</h3>
+                    <h3>Changed your mind? <small class="btn btn-info" id="select-different">Select Different Car</small> </h3>
                 </div>
 
                 <!-- booking details -->
                 <div class="row">
 
                     <!-- car to be booked: left side -->
-                    <div class="col-12 col-xl-6 p-0">
+                    <div class="col-12 col-lg-6 p-0">
                         <div class="card rounded-0">
                             <div class="card-header text-center bg-dark text-light rounded-0">
                                 <h5 class="card-title m-0">Car Title: Brand + Model</h5>
@@ -86,7 +87,7 @@
                     </div>
 
                     <!-- booking info fillings: right side -->
-                    <div class="col-12 col-xl-6 p-0 booking-filling mt-3 mt-xl-0">
+                    <div class="col-12 col-lg-6 p-0 booking-filling mt-3 mt-xl-0">
                         <div class="card rounded-0">
                             <div class="card-header text-center bg-dark text-light rounded-0">
                                 <h5 class="card-title m-0">Bill Tentative</h5>
@@ -94,53 +95,53 @@
                             <div class="card-body pb-2 bg-light">
                                 <div class="form-group row">
                                     <label class="col-6 col-form-label">Date and Time of Requirement</label>
-                                    <div class="col-6">
-                                        <input class="form-control" type="datetime-local">
+                                    <div class="col-6 d-flex align-self-center flex-column">
+                                        <input class="form-control" type="datetime-local" id="booking-time">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-6 col-form-label">Usage Hours (tentative) - &#8377;100/hr</label>
-                                    <div class="col-6">
-                                        <input class="form-control" type="number">
+                                    <label class="col-6 col-form-label">Usage Hours (tentative) - &#8377;50/hr (Min: 24hrs)</label>
+                                    <div class="col-6 d-flex align-self-center flex-column">
+                                        <input class="form-control" type="number" value="24", min="24" id="booking-car-usage">
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-6 col-form-label">Initial Fuel Requirement (tentative) - &#8377;83/litre</label>
-                                    <div class="col-6">
-                                        <input class="form-control" type="number">
+                                <div class="form-group row" id="fuelCapDetail">
+                                    <label class="col-6 col-form-label">Initial Fuel Requirement (tentative) - &#8377;83/litre (Min: 20)</label>
+                                    <div class="col-6 d-flex align-self-center flex-column">
+                                        <input class="form-control" type="number" value="15" id="booking-fuel" min='15'>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-6 col-form-label">Do you require life insurance? (&#8377;3500)</label>
-                                    <div class="col-6 mt-1">
-                                        <input type="checkbox">
+                                    <div class="col-6 mt-1 d-flex align-self-center">
+                                        <input type="checkbox" id="booking-life-insurance">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-6 col-form-label">Chauffeur Required? (&#8377;700/day)</label>
-                                    <div class="col-6 mt-1">
-                                        <input type="checkbox">
+                                    <div class="col-6 mt-1 d-flex align-self-center">
+                                        <input type="checkbox" id="booking-chauffeur">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-6 col-form-label">Damage Insurance Cost</label>
-                                    <div class="col-6 mt-1">
-                                        <p>&#8377; 500</p>
+                                    <div class="col-6 mt-1 d-flex align-self-center">
+                                        <p id="booking-damage-insurance"></p>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-6 col-form-label">Deposit</label>
-                                    <div class="col-6 mt-1">
-                                        <p>&#8377; 2500</p>
+                                    <div class="col-6 mt-1 d-flex align-self-center">
+                                        <p id="booking-deposit"></p>
                                     </div>
                                 </div>
                                 <div class="form-group row h6">
                                     <label class="col-6 col-form-label">Total Tentative</label>
-                                    <div class="col-6 mt-1">
-                                        <p>&#8377; 7500</p>
+                                    <div class="col-6 mt-1 d-flex align-self-center">
+                                        <p id="booking-total"></p>
                                     </div>
                                 </div>
-                                <div class="btn btn-primary btn-block pb-2">Make Advance Payment</div>
+                                <div class="btn btn-primary btn-block pb-2" id="adv-payment">Make Advance Payment</div>
                             </div>
                         </div>
                     </div>
@@ -164,5 +165,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="./scripts/booking.js" type="module"></script>
 </body>
 </html>
