@@ -1,4 +1,4 @@
-import {damageInsurance, status} from './common.js'
+import {damageInsurance} from './common.js'
 
 const timeInput = document.getElementById('booking-time')
 const usageInput = document.getElementById('booking-car-usage')
@@ -10,11 +10,19 @@ const depositInput = document.getElementById('booking-deposit')
 const totalInput = document.getElementById('booking-total')
 const selectDiffBtn = document.getElementById('select-different')
 const advPayment = document.getElementById('adv-payment')
+
+const detailImg = document.getElementById('detail-img')
+const detailPower = document.getElementById('detail-power')
+const detailFuel = document.getElementById('detail-fuel')
+const detailUsage = document.getElementById('detail-usage')
+const detailType = document.getElementById('detail-type')
+const detailSeater = document.getElementById('detail-seater')
+const detailTitle = document.getElementById('detail-title')
+
 const booking = bookingCalculation()
 
-function Booking(id, status, carID, userID, payment, chauffeur, carBookedFor, bookinDate, usage, InitialFuel, lifeInsurance, damageInsurance){
+function Booking(id, carID, userID, payment, chauffeur, carBookedFor, bookinDate, usage, InitialFuel, lifeInsurance, damageInsurance){
     this.id = id
-    this.status = status
     this.carID = carID
     this.userID = userID
     this.payment = payment
@@ -35,6 +43,20 @@ function addEvents(){
         addEvents2Inputs()
         selectDiffBtn.addEventListener('click', go2Selection)
     }
+}
+
+function displayCarDetail(carObj){
+    let car = carObj.car
+    detailImg.src = car.img
+    detailImg.style.height = '297px'
+    detailImg.alt = car.name + " " + car.model
+    let power = car.power
+    detailPower.innerHTML = [ ...( new Array(power).fill('&#9733;') ), ...( new Array(5-power).fill('&#9734;') ) ].join(' ')
+    detailFuel.textContent = car.fuel[0].toUpperCase() + car.fuel.slice(1)
+    detailUsage.textContent = carObj.usage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " Km"
+    detailType.textContent = car.type
+    detailSeater.textContent = car.seater
+    detailTitle.textContent = car.name + " " + car.model
 }
 
 function checkLogin(){
@@ -75,15 +97,16 @@ function bookCar(){
             bookings = []
         }
     }
-    let id = bookings.length === 0? 1 : (bookings[bookings.length - 1].id + 1)
-
-    let newBooking = new Booking( id, status[0], getSelection(), checkLogin()[1].id, 
+    let carSelect = getSelection()
+    let bookingID = "CRDM" + Date.now() + "CR" + carSelect
+    let newBooking = new Booking( bookingID, carSelect, checkLogin()[1].id, 
                                 totalInput.value, booking.getChauffeur(), booking.getDate(), 
                                 Date.now(), booking.getUsage(), booking.getFuel(), 
                                 booking.getLifeInsure(), booking.getDamageInsure() )
 
     bookings.push(newBooking)
     localStorage.setItem('bookings', JSON.stringify(bookings))
+    localStorage.removeItem('car-selection')
     location.href = 'receipt.html'
 }
 
@@ -96,18 +119,22 @@ function getSelection(){
     return JSON.parse(carSelect)
 }
 
+function getCars(){
+    let cars = localStorage.getItem('cars')
+    if(cars === null){
+        location.href = 'selection.html'
+        return
+    }
+    return JSON.parse(cars)
+}
+
 function bookingCalculation(){
     let carObj = getCar()
-    let [minDateTime, usage, fuel, lifeInsure, chauffeur, damageInsure, deposit, fuelCap] = [setMinDateOnInput(), 1200, 1245, false, false, getDamageInsure(), getDeposit(), getFuelCap()]
+    let [minDateTime, usage, fuel, lifeInsure, chauffeur, damageInsure, deposit, fuelCap] = [setMinDateOnInput(), 24, 15, false, false, getDamageInsure(), getDeposit(), getFuelCap()]
 
     function getCar(){
-        carSelect = getSelection()
-        let cars = localStorage.getItem('cars')
-        if(cars === null){
-            location.href = 'selection.html'
-            return
-        }
-        cars = JSON.parse(cars).filter(car => car.id === carSelect)
+        let carSelect = getSelection()
+        let cars = getCars().filter(car => car.id === carSelect)
         if(cars.length === 0){
             location.href = 'selection.html'
             return
@@ -117,10 +144,10 @@ function bookingCalculation(){
             location.href = 'selection.html'
             return
         }
+        displayCarDetail(car)
         return car
         //check booking status as well
     }
-
 
     // functions for data extrcation
     function getFuelCap(){
@@ -153,7 +180,7 @@ function bookingCalculation(){
     }
 
     function getUsage(){
-        return Math.ceil(usage/50)
+        return usage
     }
 
 
@@ -172,14 +199,14 @@ function bookingCalculation(){
         let temp = Number(usageInput.value)
         if(isNaN(temp) || temp < 24){
             usageInput.value = 24
-            usage = 24 * 50
+            usage = 24
         }
         else if(temp > 360){
             usageInput.value = 360
-            usage = 360 * 50
+            usage = 360
         }
         else{
-            usage = temp * 50
+            usage = temp
         }
         displayData()
     }
@@ -188,14 +215,14 @@ function bookingCalculation(){
         let temp = Number(fuelInput.value)
         if(isNaN(temp) || temp < 15){
             fuelInput.value = 15
-            fuel = 15 * 83
+            fuel = 15
         }
         else if(temp > fuelCap){
             fuelInput.value = fuelCap
-            fuel = fuelCap * 83
+            fuel = fuelCap
         }
         else{
-            fuel = temp * 83
+            fuel = temp
         }
         displayData()
     }
@@ -221,8 +248,8 @@ function bookingCalculation(){
     function displayData(){
         damageInsInput.innerHTML = "&#8377; " + damageInsure
         depositInput.innerHTML = "&#8377; " + deposit
-        totalInput.innerHTML = "&#8377; " + ( usage + fuel + (lifeInsure ? 3500 : 0) 
-                                        + (chauffeur ? 700*Math.ceil( (usage/50) /24) : 0) 
+        totalInput.innerHTML = "&#8377; " + ( (usage*50) + (fuel*83) + (lifeInsure ? 3500 : 0) 
+                                        + (chauffeur ? 700*Math.ceil(usage/24) : 0) 
                                         + damageInsure + deposit )
     }
 

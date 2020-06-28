@@ -42,9 +42,9 @@
             <div class="booking-container p-5">
 
                 <!-- booking heading -->
-                <div class="mb-5 d-flex justify-content-between">
+                <div class="mb-5 d-flex justify-content-between bookingHead">
                     <h3>Booking Detail Fill Up</h3>
-                    <h3>Changed your mind? <small class="btn btn-info" id="select-different">Select Different Car</small> </h3>
+                    <h3 class="ml-3">Changed your mind? <small class="btn btn-info" id="select-different">Select Different Car</small> </h3>
                 </div>
 
                 <!-- booking details -->
@@ -54,31 +54,31 @@
                     <div class="col-12 col-lg-6 p-0">
                         <div class="card rounded-0">
                             <div class="card-header text-center bg-dark text-light rounded-0">
-                                <h5 class="card-title m-0">Car Title: Brand + Model</h5>
+                                <h5 class="card-title m-0" id="detail-title">Car Title: Brand + Model</h5>
                             </div>
-                            <img class="img-fluid border-bottom" src="https://imgd.aeplcdn.com/664x374/n/cw/ec/41652/hyundai-aura-right-front-three-quarter6.jpeg?q=85" alt="">
+                            <img class="img-fluid border-bottom" id="detail-img">
                             <div class="card-body bg-light mb-1">
                                 <table class="table mb-0">
                                     <tbody class="card-text">
                                       <tr>
                                         <th class="border-top-0" scope="row">Power</th>
-                                        <td class="border-top-0 text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</td>
+                                        <td class="border-top-0 text-warning" id="detail-power"></td>
                                       </tr>
                                       <tr>
                                         <th scope="row">Motor Fuel</th>
-                                        <td>Diesel</td>
+                                        <td id="detail-fuel"></td>
                                       </tr>
                                       <tr>
                                         <th scope="row">Usage</th>
-                                        <td>3500 Km</td>
+                                        <td id="detail-usage"></td>
                                       </tr>
                                       <tr>
                                         <th scope="row">Type</th>
-                                        <td>Sedan</td>
+                                        <td id="detail-type"></td>
                                       </tr>
                                       <tr>
                                         <th scope="row">Seater</th>
-                                        <td>4</td>
+                                        <td id="detail-seater"></td>
                                       </tr>
                                     </tbody>
                                 </table>
