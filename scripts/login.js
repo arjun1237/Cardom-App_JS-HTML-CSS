@@ -37,7 +37,10 @@ function submit(){
             let logInUser =  new LoggedInUser(user.id, user.name, 
                             user.role, user.email, user.license, user.phone)
             localStorage.setItem('login', JSON.stringify(logInUser))
-            if(user.role === roles[0] || user.role === roles[1]){
+            if(localStorage.getItem('car-selection') === null){
+                location.href = 'selection.html'
+            }
+            else if(user.role === roles[0] || user.role === roles[1]){
                 location.href = 'admin.html'
             }
             else{

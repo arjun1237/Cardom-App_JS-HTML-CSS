@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="shortcut icon" href="https://stimg.cardekho.com/images/carexteriorimages/630x420/Hyundai/Verna/6788/1585562805709/front-left-side-47.jpg?tr=w-456">
+    <link rel="shortcut icon" href="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/all-models/x-series/x2/2017/bmw-x2-nscsmall-layer-02-car-hd.png">
     <link rel="stylesheet" href="/styles/index.css">
     <link rel="stylesheet" href="/styles/common.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,28 +14,44 @@
 </head>
 <body>
     <div class="container-fluid p-0">
-        <nav class="nav-top fixed nav-bg-main justify-content-start color-white-trans font-logo d-flex flex-row">
+        <nav class="nav-top fixed nav-bg-main justify-content-start color-white-trans font-logo d-flex flex-row" id="nav-top-pointer">
             <div class="nav-brand flex-grow-1">
                 <i class="fa fa-car font-i-sm pr-2" aria-hidden="true"></i><a class="a-text-dec-none" href="index.html">Cardom</a><i class="fa fa-car font-i-sm pl-2" aria-hidden="true"></i>
             </div>
             <div class="navbar-list">
-                <ul>
+                <ul class="navbar-list-group">
                     <li><a href="register.html">Register</a></li>
                     <li><a href="login.html">Sign In</a></li>
+                    <li><a href="#" id='logout-user'>Logout</a></li>
                     <li><a href="about.html">About</a></li>
                 </ul>
+                <div>
+                    <div class="burger-group display-none">
+                        <div class="burger"></div>
+                        <div class="burger"></div>
+                        <div class="burger"></div>
+                    </div>
+                    <div>
+                        <b class="burger-cross display-none">&#9747;</b>
+                    </div>
+                </div>
             </div>
         </nav>
         <div class="nav-bar-support">
 
         </div>
-        <nav class="side-bar fixed">
+        <nav class="side-bar fixed" id="nav-side-pointer">
             <ul>
                 <li><a href="selection.html">Book a Car</a></li>
                 <li><a href="index.html#ht-cardom">How to Cardom</a></li>
                 <li><a href="index.html#car-types">Types of Cars</a></li>
                 <li><a href="">Policies</a></li>
                 <li><a href="">Prestige Collections</a></li>
+            </ul>
+            <ul class="after-login-list">            
+                <li class="user-welcome">Welcome Arjun</li>    
+                <li><a href="user.html">Profile</a></li>
+                <li><a href="admin.html">Admin</a></li>
             </ul>
         </nav>
         <div class="main-content">
@@ -219,6 +235,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
-    <script src="/scripts/common.js"></script>
+    <script src="/scripts/common.js" type="module"></script>
 </body>
 </html>

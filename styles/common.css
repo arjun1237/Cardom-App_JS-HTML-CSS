@@ -39,7 +39,7 @@ body {
     padding: 20px;
 }
 
-.navbar-list > ul li {
+.navbar-list ul li {
     display: inline;
     padding: 10px;
 }
@@ -49,17 +49,17 @@ body {
     color: inherit;
 }
 
-.navbar-list > ul li,
+.navbar-list ul li,
 .side-bar ul li {
     font-size: 16px;
     color: #8391a2;
 }
 
-.navbar-list > ul {
+.navbar-list ul {
     margin: 20px 10px 10px 10px;
 }
 
-.navbar-list > ul li:hover,
+.navbar-list ul li:hover,
 .side-bar ul li:hover {
     color: #cedce4;
     cursor: pointer;
@@ -134,6 +134,44 @@ body {
     height: 200px;
 }
 
+.burger{
+    background-color: #ffffffaf;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.burger-group, .burger-cross{
+    cursor: pointer;
+    position: relative;
+    top: 20px;
+    right: 20px;
+    color: #ffffffaf;
+}
+
+.after-login-list{
+    border-top: 1px solid #8391a22f;
+    padding-top: 15px;
+}
+
+.user-welcome{
+    cursor: text !important; 
+    text-decoration: none !important; 
+    color: white !important; 
+    padding-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* footer */
 .social-icons > i{
@@ -196,12 +234,18 @@ body {
 
 @media (max-width: 576px) {
     .nav-top {
-        min-width: 505px;
+        /* min-width: 505px; */
     }
     .main-content {
         /* display: none; */
     }
     .side-bar {
+        display: none;
+    }
+    .burger-group{
+        display: block;
+    }
+    .navbar-list-group{
         display: none;
     }
 }

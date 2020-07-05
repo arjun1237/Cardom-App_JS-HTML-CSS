@@ -3,7 +3,7 @@
 export const locations = ['Bangalore', 'Hyderabad', 'Mumbai', 'Poona', 'Chennai', 'Delhi', 'Kolkata']
 export const roles = ['admin', 'super-admin', 'customer']
 export const carType = ['Sedan', 'SUV', 'Hatchback', 'Minivan', 'Prestige']
-export const status = ['booked', 'onroad', 'returned-need-confirm', 'returned']
+export const status = ['booked', 'returned-need-confirm', 'returned']
 export const fuel = ['diesel', 'petrol']
 export const powers = [1, 2, 3, 4, 5]
 export const damageInsurance = { 
@@ -257,6 +257,11 @@ export function addCommatoNum(num){
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
 
+export function logout(){
+    localStorage.removeItem('login')
+    location.href = 'login.html'
+}
+
 
 
 // input validation helpers
@@ -289,7 +294,6 @@ export function setAttributes(attributes){
 window.addEventListener('load', addEvents)
 
 function addEvents(){
-    
+    let logout = document.getElementById('logout-user')
+    if(logout !== null) logout.addEventListener('click', logout)
 }
-
-

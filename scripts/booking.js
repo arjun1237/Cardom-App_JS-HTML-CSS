@@ -1,4 +1,4 @@
-import {damageInsurance, addCommatoNum} from './common.js'
+import {damageInsurance, addCommatoNum, status} from './common.js'
 
 const timeInput = document.getElementById('booking-time')
 const usageInput = document.getElementById('booking-car-usage')
@@ -21,7 +21,7 @@ const detailTitle = document.getElementById('detail-title')
 
 const booking = bookingCalculation()
 
-function Booking(id, carID, userID, payment, chauffeur, carBookedFor, bookinDate, usage, initialFuel, lifeInsurance, damageInsurance){
+function Booking(id, carID, userID, payment, chauffeur, carBookedFor, bookinDate, usage, initialFuel, lifeInsurance, damageInsurance, status){
     this.id = id
     this.carID = carID
     this.userID = userID
@@ -33,6 +33,7 @@ function Booking(id, carID, userID, payment, chauffeur, carBookedFor, bookinDate
     this.initialFuel = initialFuel
     this.lifeInsurance = lifeInsurance
     this.damageInsurance = damageInsurance
+    this.status = status
 }
 
 window.addEventListener('load', addEvents)
@@ -104,7 +105,7 @@ function bookCar(){
     let newBooking = new Booking( bookingID, carSelect, checkLogin()[1].id, 
                                 totalInput.value, booking.getChauffeur(), booking.getDate(), 
                                 Date.now(), booking.getUsage(), booking.getFuel(), 
-                                booking.getLifeInsure(), booking.getDamageInsure() )
+                                booking.getLifeInsure(), booking.getDamageInsure(), status[0])
 
     bookings.push(newBooking)
     localStorage.setItem('bookings', JSON.stringify(bookings))

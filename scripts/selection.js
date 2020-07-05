@@ -1,4 +1,4 @@
-import {locations, powers, fuel, carType, setAttributes} from './common.js'
+import {locations, powers, fuel, carType, setAttributes, status} from './common.js'
 
 window.addEventListener('load', addEvents)
 const selectCity = document.getElementById('selectCity')
@@ -103,7 +103,11 @@ function selection(){
             bookings = JSON.parse(bookings)
         }
         let ids = []
-        bookings.forEach(b => ids.push(b.carID))
+        bookings.forEach(b => {
+            if(b.status !== status[2]){
+                ids.push(b.carID)
+            }
+        })
 
         if(cars.length !== 0){
             removeNoCarBanner()

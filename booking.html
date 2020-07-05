@@ -14,28 +14,44 @@
 <body>
 
     <div class="container-fluid p-0">
-        <nav class="nav-top fixed nav-bg-main justify-content-start color-white-trans font-logo d-flex flex-row">
+        <nav class="nav-top fixed nav-bg-main justify-content-start color-white-trans font-logo d-flex flex-row" id="nav-top-pointer">
             <div class="nav-brand flex-grow-1">
                 <i class="fa fa-car font-i-sm pr-2" aria-hidden="true"></i><a class="a-text-dec-none" href="index.html">Cardom</a><i class="fa fa-car font-i-sm pl-2" aria-hidden="true"></i>
             </div>
             <div class="navbar-list">
-                <ul>
+                <ul class="navbar-list-group">
                     <li><a href="register.html">Register</a></li>
                     <li><a href="login.html">Sign In</a></li>
+                    <li><a href="#" id='logout-user'>Logout</a></li>
                     <li><a href="about.html">About</a></li>
                 </ul>
+                <div>
+                    <div class="burger-group display-none">
+                        <div class="burger"></div>
+                        <div class="burger"></div>
+                        <div class="burger"></div>
+                    </div>
+                    <div>
+                        <b class="burger-cross display-none">&#9747;</b>
+                    </div>
+                </div>
             </div>
         </nav>
         <div class="nav-bar-support">
-            
+
         </div>
-        <nav class="side-bar fixed">
+        <nav class="side-bar fixed" id="nav-side-pointer">
             <ul>
                 <li><a href="selection.html">Book a Car</a></li>
                 <li><a href="index.html#ht-cardom">How to Cardom</a></li>
                 <li><a href="index.html#car-types">Types of Cars</a></li>
                 <li><a href="">Policies</a></li>
                 <li><a href="">Prestige Collections</a></li>
+            </ul>
+            <ul class="after-login-list">    
+                <li class="user-welcome">Welcome Arjun</li>            
+                <li><a href="user.html">Profile</a></li>
+                <li><a href="admin.html">Admin</a></li>
             </ul>
         </nav>
         <div class="main-content">
