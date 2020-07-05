@@ -1,0 +1,13 @@
+.user-account-detail td{
+    padding: 10px;
+}
+
+.user-account-detail table{
+    width: 100%;
+}
+
+.booking-card-deco{
+    margin: auto;
+    border-color: #00000036;
+    border-width: 2px;
+}
