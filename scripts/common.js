@@ -56,6 +56,25 @@ export function User(id, name, age, email, phone, license, password, role){
     this.role = role
 }
 
+export function Payment(val, gst = 0.18){
+    this.val = val
+    this.taxedVal = Math.ceil(val*gst) + val
+}
+
+export function Booking(id, carID, userID, payment, chauffeur, carBookedFor, bookingDate, usage, initialFuel, lifeInsurance, damageInsurance, status){
+    this.id = id
+    this.carID = carID
+    this.userID = userID
+    this.payment = payment
+    this.chauffeur = chauffeur
+    this.carBookedFor = carBookedFor
+    this.bookingDate = bookingDate
+    this.usage = usage
+    this.initialFuel = initialFuel
+    this.lifeInsurance = lifeInsurance
+    this.damageInsurance = damageInsurance
+    this.status = status
+}
 
 function manageUsers(){
     let userID = 0
@@ -66,10 +85,11 @@ function manageUsers(){
     let license = '87655ADFSG'
     let phone = '8767676543'
     setUserID()
+    generateBookings()
     
     function setUserID(){
         var users = checkUsersinStorage()
-        if(users === null){
+        if(!users){
             generateAllUsers()
         }
         else{
@@ -86,6 +106,13 @@ function manageUsers(){
                                 (admins[i].toLowerCase() === "surya" || admins[i].toLowerCase() === "neha") ? roles[1] : roles[0] ))
         }
         localStorage.setItem('users', JSON.stringify(users))
+    }
+
+    function generateBookings(){
+        let bookings = checkBookingsinStorage()
+        if(!bookings){
+            localStorage.setItem('bookings', JSON.stringify(renderBookingsDB()))
+        }
     }
 
     function addUser(user){
@@ -158,6 +185,42 @@ function manageVehicle(){
         }
     }
     return {addNewVehicle, removeVehicle}
+}
+
+
+// creating bookings data for mock DB
+// args - id, carID, userID, payment, chauffeur, carBookedFor, bookingDate, usage, initialFuel, lifeInsurance, damageInsurance, status
+// ----------------------------------------------------
+function renderBookingsDB(){
+    let bookings = []
+    bookings.push(new Booking(uuidv4(), 4, 12, new Payment(9876), true, "2020-07-21T05:20", 1596345630813, 24, 15, true, 750, "booked"))
+    bookings.push(new Booking(uuidv4(), 9, 12, new Payment(9876), true, "2020-07-23T05:20", 1596345630813, 24, 15, true, 1350, "booked"))
+    bookings.push(new Booking(uuidv4(), 17, 12, new Payment(9876), false, "2020-07-23T05:20", 1596345630813, 24, 15, false, 1200, "booked"))
+    bookings.push(new Booking(uuidv4(), 3, 12, new Payment(9876), true, "2020-07-23T05:20", 1596345630813, 24, 15, true, 750, "booked"))
+    bookings.push(new Booking(uuidv4(), 30, 12, new Payment(9876), false, "2020-07-23T05:20", 1596345630813, 24, 15, false, 750, "booked"))
+    bookings.push(new Booking(uuidv4(), 36, 12, new Payment(9876), false, "2020-07-23T05:20", 1596345630813, 24, 15, true, 1350, "booked"))
+    bookings.push(new Booking(uuidv4(), 44, 12, new Payment(9876), true, "2020-07-22T05:20", 1596345630813, 24, 15, false, 1200, "booked"))
+    bookings.push(new Booking(uuidv4(), 55, 12, new Payment(9876), false, "2020-07-22T05:20", 1596345630813, 24, 15, true, 3800, "booked"))
+    bookings.push(new Booking(uuidv4(), 84, 12, new Payment(9876), true, "2020-07-20T05:20", 1596345630813, 24, 15, false, 3800, "booked"))
+    bookings.push(new Booking(uuidv4(), 76, 12, new Payment(9876), false, "2020-07-25T05:20", 1596345630813, 24, 15, true, 2350, "booked"))
+    bookings.push(new Booking(uuidv4(), 89, 12, new Payment(9876), true, "2020-07-25T05:20", 1596345630813, 24, 15, true, 750, "booked"))
+    bookings.push(new Booking(uuidv4(), 95, 12, new Payment(9876), true, "2020-07-25T05:20", 1596345630813, 24, 15, true, 1350, "booked"))
+    bookings.push(new Booking(uuidv4(), 87, 12, new Payment(9876), false, "2020-07-17T05:20", 1596345630813, 24, 15, false, 750, "booked"))
+    bookings.push(new Booking(uuidv4(), 63, 12, new Payment(9876), true, "2020-07-18T05:20", 1596345630813, 24, 15, true, 1350, "booked"))
+    bookings.push(new Booking(uuidv4(), 144, 12, new Payment(9876), false, "2020-07-13T05:20", 1596345630813, 24, 15, false, 750, "booked"))
+    bookings.push(new Booking(uuidv4(), 142, 12, new Payment(9876), true, "2020-07-13T05:20", 1596345630813, 24, 15, true, 750, "booked"))
+    bookings.push(new Booking(uuidv4(), 157, 12, new Payment(9876), false, "2020-07-13T05:20", 1596345630813, 24, 15, true, 1200, "booked"))
+    bookings.push(new Booking(uuidv4(), 196, 12, new Payment(9876), true, "2020-07-27T05:20", 1596345630813, 24, 15, false, 3800, "booked"))
+    bookings.push(new Booking(uuidv4(), 170, 12, new Payment(9876), true, "2020-07-28T05:20", 1596345630813, 24, 15, true, 750, "booked"))
+    bookings.push(new Booking(uuidv4(), 178, 12, new Payment(9876), false, "2020-07-29T05:20", 1596345630813, 24, 15, false, 1350, "booked"))
+    bookings.push(new Booking(uuidv4(), 172, 12, new Payment(9876), false, "2020-07-30T05:20", 1596345630813, 24, 15, true, 750, "booked"))
+    bookings.push(new Booking(uuidv4(), 114, 12, new Payment(9876), false, "2020-07-31T05:20", 1596345630813, 24, 15, false, 750, "booked"))
+    bookings.push(new Booking(uuidv4(), 121, 12, new Payment(9876), false, "2020-07-25T05:20", 1596345630813, 24, 15, true, 3800, "booked"))
+    bookings.push(new Booking(uuidv4(), 61, 12, new Payment(9876), true, "2020-08-01T05:20", 1596345630813, 24, 15, false, 1250, "booked"))
+    bookings.push(new Booking(uuidv4(), 151, 12, new Payment(9876), false, "2020-08-02T05:20", 1596345630813, 24, 15, true, 3250, "booked"))
+    bookings.push(new Booking(uuidv4(), 158, 12, new Payment(9876), true, "2020-08-03T05:20", 1596345630813, 24, 15, false, 1250, "booked"))
+
+    return bookings
 }
 
 
@@ -236,6 +299,14 @@ export function checkCarsinStorage(){
         return null
     }
     return JSON.parse(cars)
+}
+
+export function checkBookingsinStorage(){        
+    var bookings = localStorage.getItem('bookings')
+    if(bookings === null || bookings === undefined){
+        return null
+    }
+    return JSON.parse(bookings)
 }
 
 export function checkUsersinStorage(){   

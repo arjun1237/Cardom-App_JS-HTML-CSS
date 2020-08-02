@@ -1,4 +1,4 @@
-import {damageInsurance, addCommatoNum, status} from './common.js'
+import {damageInsurance, addCommatoNum, status, Booking, Payment} from './common.js'
 
 const timeInput = document.getElementById('booking-time')
 const usageInput = document.getElementById('booking-car-usage')
@@ -21,24 +21,14 @@ const detailTitle = document.getElementById('detail-title')
 
 const booking = bookingCalculation()
 
-function Booking(id, carID, userID, payment, chauffeur, carBookedFor, bookinDate, usage, initialFuel, lifeInsurance, damageInsurance, status){
-    this.id = id
-    this.carID = carID
-    this.userID = userID
-    this.payment = payment
-    this.chauffeur = chauffeur
-    this.carBookedFor = carBookedFor
-    this.bookinDate = bookinDate
-    this.usage = usage
-    this.initialFuel = initialFuel
-    this.lifeInsurance = lifeInsurance
-    this.damageInsurance = damageInsurance
-    this.status = status
-}
-
 window.addEventListener('load', addEvents)
 
 function addEvents(){
+    let bookings_local = localStorage.getItem('bookings')
+    if(!bookings_local){
+        addBookingData()
+    }
+
     if(checkLogin()[0]){
         booking.displayData()
         addEvents2Inputs()
@@ -101,16 +91,25 @@ function bookCar(){
         }
     }
     let carSelect = getSelection()
-    let bookingID = "CRDM" + Date.now() + "CR" + carSelect
+    let bookingID = uuidv4()
     let newBooking = new Booking( bookingID, carSelect, checkLogin()[1].id, 
-                                totalInput.value, booking.getChauffeur(), booking.getDate(), 
+                                new Payment(getNumFromString(totalInput.textContent)), 
+                                booking.getChauffeur(), booking.getDate(), 
                                 Date.now(), booking.getUsage(), booking.getFuel(), 
                                 booking.getLifeInsure(), booking.getDamageInsure(), status[0])
-
+    console.log(newBooking)
     bookings.push(newBooking)
     localStorage.setItem('bookings', JSON.stringify(bookings))
     localStorage.removeItem('car-selection')
     location.href = 'receipt.html'
+}
+
+function getNumFromString(val){
+    let res = ''
+    for(let i=0; i<val.length; i++){
+        if(!isNaN(Number(val[i]))) res += val[i]
+    }
+    return Number(res)
 }
 
 function getSelection(){    

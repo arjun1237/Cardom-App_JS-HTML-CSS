@@ -1,0 +1,10 @@
+.chart-admin-booking{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.chart-admin-booking > div{
+    width: 700px;
+
+}

@@ -112,8 +112,9 @@ function selection(){
         if(cars.length !== 0){
             removeNoCarBanner()
             cars.forEach(car => {
-                let temp = ids.indexOf(car.id) === -1 ? carDisplay(car, false) : carDisplay(car, true)
-                wrapper.append(temp) 
+                let index = ids.indexOf(car.id)
+                let temp = (index === -1 || car.status === status[2]) ? carDisplay(car, false) : carDisplay(car, true)
+                wrapper.append(temp)
             })
         }
         else{            
