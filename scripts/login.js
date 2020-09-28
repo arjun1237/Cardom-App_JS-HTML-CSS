@@ -44,7 +44,7 @@ function submit(){
                 location.href = 'admin.html'
             }
             else{
-                location.href = 'customer.html'
+                location.href = 'booking.html'
             }
         }
         else{

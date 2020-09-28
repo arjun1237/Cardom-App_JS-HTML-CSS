@@ -367,4 +367,12 @@ window.addEventListener('load', addEvents)
 function addEvents(){
     let logout = document.getElementById('logout-user')
     if(logout !== null) logout.addEventListener('click', logout)
+
+    // let loginList = document.querySelector('.after-login-list')
+    // if(logout){
+    //     loginList.classList.remove('display-none')
+    // }
+    // else{
+    //     loginList.classList.add('display-none')
+    // }
 }

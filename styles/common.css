@@ -47,12 +47,14 @@ body {
 .navbar-list a,
 .side-bar a {
     color: inherit;
+    cursor: pointer;
 }
 
 .navbar-list ul li,
 .side-bar ul li {
     font-size: 16px;
     color: #8391a2;
+    cursor: pointer !important;
 }
 
 .navbar-list ul {
@@ -62,7 +64,6 @@ body {
 .navbar-list ul li:hover,
 .side-bar ul li:hover {
     color: #cedce4;
-    cursor: pointer;
     text-decoration: underline;
     /* line-height: 1px; */
 }
