@@ -71,7 +71,7 @@ body {
 .side-bar {
     background-color: #262e38;
     padding: 30px 43px 30px 0px;
-    height: 87.8vh;
+    height: 100vh;
     font-family: "Saira", sans-serif;
 }
 
@@ -223,7 +223,7 @@ body {
 
 @media (min-width: 576px) {
     .side-bar {
-        width: fit-content;
+        width: 228px;
     }
     .main-content {
         margin-left: 228px;
